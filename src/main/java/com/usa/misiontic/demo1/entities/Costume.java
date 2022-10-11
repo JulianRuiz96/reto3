@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name="product")
+@Table(name="costume")
 public class Costume{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,15 +19,16 @@ public class Costume{
     private String description;
 
     @ManyToOne
-    @JoinColumn(name ="categoryID")
+    @JoinColumn(name ="categoryId")
     @JsonIgnoreProperties("costumes")
     private Category category;
 
-    @OneToMany
+    @OneToMany(mappedBy = "costume")
+    @JsonIgnoreProperties({"costume","client"})
     private List<Message> messages;
 
     @OneToMany(mappedBy = "costume")
-    @JsonIgnoreProperties("costume")
+    @JsonIgnoreProperties({"costume","client"})
     private List<Reservation> reservations;
 
     public List<Message> getMessages() {

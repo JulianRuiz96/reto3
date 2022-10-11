@@ -25,7 +25,7 @@ public class Reservation {
     private Costume costume;
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations", "messages"})
     private Client client;
 
 
