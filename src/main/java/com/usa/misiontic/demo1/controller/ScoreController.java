@@ -17,6 +17,7 @@ public class ScoreController {
     private ScoreService scoreService;
 
     @GetMapping("/all")
+    @PostMapping("/all")
     public List<Score> getAll(){
         return scoreService.getAll();
     }

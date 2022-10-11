@@ -15,9 +15,11 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/all")
+    @PostMapping("/all")
     public List<Reservation> getAll(){
         return reservationService.getAll();
     }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save (@RequestBody Reservation p){

@@ -16,6 +16,7 @@ public class MessageController {
     private MessageService messageService;
 
     @GetMapping("/all")
+    @PostMapping("/all")
     public List<Message> getAll(){
         return messageService.getAll();
     }

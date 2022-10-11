@@ -16,6 +16,7 @@ public class CostumeController {
     private CostumeService costumeService;
 
     @GetMapping("/all")
+    @PostMapping("/all")
     public List<Costume> getAll(){
         return costumeService.getAll();
     }
