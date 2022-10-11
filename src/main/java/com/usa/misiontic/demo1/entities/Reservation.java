@@ -20,14 +20,15 @@ public class Reservation {
     private String status= "created";
 
     @ManyToOne
+    @JoinColumn(name = "costumeId")
+    @JsonIgnoreProperties("reservations")
+    private Costume costume;
+    @ManyToOne
     @JoinColumn(name = "clientId")
     @JsonIgnoreProperties("reservations")
     private Client client;
 
-    @ManyToOne
-    @JoinColumn(name = "costumeId")
-    @JsonIgnoreProperties("reservations")
-    private Costume costume;
+
 
     @OneToOne(mappedBy = "reservations")
     @JsonIgnoreProperties("reservations")
