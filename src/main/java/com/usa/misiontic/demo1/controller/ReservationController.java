@@ -20,6 +20,12 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Reservation> getAll2(){
+        return reservationService.getAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save (@RequestBody Reservation p){

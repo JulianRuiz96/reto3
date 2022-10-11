@@ -20,6 +20,15 @@ public class CostumeController {
     public List<Costume> getAll(){
         return costumeService.getAll();
     }
+
+
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Costume> getAll2(){
+        return costumeService.getAll();
+    }
+
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Costume save (@RequestBody Costume p){

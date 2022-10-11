@@ -22,6 +22,12 @@ public class ScoreController {
         return scoreService.getAll();
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Score> getAll2(){
+        return scoreService.getAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Score save (@RequestBody Score p){

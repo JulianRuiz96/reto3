@@ -20,6 +20,12 @@ public class CategoryController {
     public List<Category> getAll(){
         return categoryService.getAll();
     }
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Category> getAll2(){
+        return categoryService.getAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category save (@RequestBody Category c){

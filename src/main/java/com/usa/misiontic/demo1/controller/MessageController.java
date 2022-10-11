@@ -20,6 +20,14 @@ public class MessageController {
     public List<Message> getAll(){
         return messageService.getAll();
     }
+
+
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Message> getAll2(){
+        return messageService.getAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message save (@RequestBody Message p){
