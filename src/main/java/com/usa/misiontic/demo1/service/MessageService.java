@@ -1,6 +1,7 @@
 package com.usa.misiontic.demo1.service;
 
 
+import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.entities.Message;
 import com.usa.misiontic.demo1.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,34 +37,34 @@ public class MessageService {
         }
     }
 
-//    public Message update(Message p){
-//        if (p.getId()!=null){
-//            Optional<Message> q = messageRepository.getCostume(p.getId());
-//            if (q.isPresent()){
-//                if (p.getName() !=null) {
-//                    q.get().setName(p.getName());
-//                }if (p.getYear()!=null){
-//                    q.get().setYear(p.getYear());
-//                }if (p.getCategory()!=null){
-//                    q.get().setCategory(p.getCategory());
-//                }
-//                messageRepository.save(q.get());
-//                return q.get();
-//            }else {
-//                return p;
-//            }
-//        }else{
-//            return p;
-//        }
-//    }
-//
-//    public boolean delete(int id){
-//        boolean flag =false;
-//        Optional<Costume>p= costumeRepository.getCostume(id);
-//        if (p.isPresent()){
-//            costumeRepository.delete(p.get());
-//            flag=true;
-//        }
-//        return flag;
-//    }
+    public Message update(Message p) {
+        if (p.getIdMessage() != null) {
+            Optional<Message> q = messageRepository.getCostume(p.getIdMessage());
+            if (q.isPresent()) {
+                if (p.getIdMessage() != null) {
+                    q.get().setIdMessage(p.getIdMessage());
+                }
+                messageRepository.save(q.get());
+                return q.get();
+            } else {
+                return p;
+            }
+        } else {
+            return p;
+        }
+    }
+
+    public boolean delete(int id){
+        boolean flag =false;
+        Optional<Message>p= messageRepository.getCostume(id);
+        if (p.isPresent()){
+            messageRepository.delete(p.get());
+            flag=true;
+        }
+        return flag;
+    }
+
+
+
+
 }

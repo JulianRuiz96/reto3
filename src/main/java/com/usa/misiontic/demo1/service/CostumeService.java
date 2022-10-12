@@ -1,5 +1,6 @@
 package com.usa.misiontic.demo1.service;
 
+import com.usa.misiontic.demo1.entities.Category;
 import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.repository.CostumeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

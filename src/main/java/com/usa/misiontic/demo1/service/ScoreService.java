@@ -1,5 +1,6 @@
 package com.usa.misiontic.demo1.service;
 
+import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.entities.Score;
 import com.usa.misiontic.demo1.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,17 @@ public class ScoreService {
                 return scoreRepository.save(p);
             }
         }
+    }
+
+
+
+    public boolean delete(int id){
+        boolean flag =false;
+        Optional<Score>p= scoreRepository.getScore(id);
+        if (p.isPresent()){
+            scoreRepository.delete(p.get());
+            flag=true;
+        }
+        return flag;
     }
 }

@@ -1,6 +1,7 @@
 package com.usa.misiontic.demo1.service;
 
 import com.usa.misiontic.demo1.entities.Category;
+import com.usa.misiontic.demo1.entities.Client;
 import com.usa.misiontic.demo1.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,30 +35,35 @@ public class CategoryService {
         }
     }
 
-//    public Category update(Category p){
-//        if (p.getId()!=null){
-//            Optional<Category> q = categoryRepository.getCategory(p.getId());
-//            if (q.isPresent()){
-//                if (p.getName() !=null) {
-//                    q.get().setName(p.getName());
-//                }
-//                categoryRepository.save(q.get());
-//                return q.get();
-//            }else {
-//                return p;
-//            }
-//        }else{
-//            return p;
-//        }
-//    }
 
-//    public boolean delete(int id){
-//        boolean flag =false;
-//        Optional<Costume>p= categoryRepository.getProduct(id);
-//        if (p.isPresent()){
-//            categoryRepository.delete(p.get());
-//            flag=true;
-//        }
-//        return flag;
-//    }
+    public Category update(Category category){
+        if (category.getId()!=null){
+            Optional<Category> q = categoryRepository.getCategory(category.getId());
+            if (q.isPresent()){
+                if (category.getName() !=null) {
+                    q.get().setName(category.getName());
+                }
+                categoryRepository.save(q.get());
+                return q.get();
+            }else {
+                return category;
+            }
+        }else{
+            return category;
+        }
+    }
+
+
+    public boolean delete(int id){
+        boolean flag =false;
+        Optional<Category>p= categoryRepository.getCategory(id);
+        if (p.isPresent()){
+            categoryRepository.delete(p.get());
+            flag=true;
+        }
+        return flag;
+    }
+
+
+
 }

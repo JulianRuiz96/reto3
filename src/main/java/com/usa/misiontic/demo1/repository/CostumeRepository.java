@@ -1,5 +1,6 @@
 package com.usa.misiontic.demo1.repository;
 
+import com.usa.misiontic.demo1.entities.Client;
 import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.repository.crudRepository.CostumeCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class CostumeRepository {
         return costumeCrudRepository.save(p);
     }
 
-    public void delete(Costume p){
-        costumeCrudRepository.delete(p);
+    public void delete(Costume costume){
+        costumeCrudRepository.delete(costume);
     }
 }

@@ -33,4 +33,5 @@ public class ScoreController {
     public Score save (@RequestBody Score p){
         return scoreService.save(p);
     }
+
 }

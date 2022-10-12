@@ -56,4 +56,14 @@ public class Message {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Message(Integer idMessage, String messageText, Costume costume, Client client) {
+        this.idMessage = idMessage;
+        this.messageText = messageText;
+        this.costume = costume;
+        this.client = client;
+    }
+
+    public Message() {
+    }
 }

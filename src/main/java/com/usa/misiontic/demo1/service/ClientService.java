@@ -35,37 +35,38 @@ public class ClientService {
         }
     }
 
-//    public Client update(Client p){
-//        if (p.getIdClient()!=null){
-//            Optional<Client> q = clientRepository.getClient(p.getIdClient());
-//            if (q.isPresent()){
-//                if (p.getName() !=null) {
-//                    q.get().setName(p.getName());
-//                }if (p.getEmail()!=null){
-//                    q.get().setEmail(p.getEmail());
-//                }if (p.getPassword()!=null){
-//                    q.get().setPassword(p.getPassword());
-//                }if(p.getAge()!=null){
-//                    q.get().setAge(p.getAge());
-//                }
-//                clientRepository.save(q.get());
-//                return q.get();
-//            }else {
-//                return p;
-//            }
-//        }else{
-//            return p;
-//        }
-//    }
+    public boolean delete(int id){
+        boolean flag =false;
+        Optional<Client>p= clientRepository.getClient(id);
+        if (p.isPresent()){
+            clientRepository.delete(p.get());
+            flag=true;
+        }
+        return flag;
+    }
 
-//    public boolean delete(int id){
-//        boolean flag =false;
-//        Optional<Costume>p= clientRepository.getClient(id);
-//        if (p.isPresent()){
-//            clientRepository.delete(p.get());
-//            flag=true;
-//        }
-//        return flag;
-//    }
+    public Client update(Client p){
+        if (p.getIdClient()!=null){
+            Optional<Client> q = clientRepository.getClient(p.getIdClient());
+            if (q.isPresent()){
+                if (p.getName() !=null) {
+                    q.get().setName(p.getName());
+                }if (p.getEmail()!=null){
+                    q.get().setEmail(p.getEmail());
+                }if (p.getPassword()!=null){
+                    q.get().setPassword(p.getPassword());
+                }if(p.getAge()!=null){
+                    q.get().setAge(p.getAge());
+                }
+                clientRepository.save(q.get());
+                return q.get();
+            }else {
+                return p;
+            }
+        }else{
+            return p;
+        }
+    }
+
 
 }
