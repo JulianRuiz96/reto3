@@ -34,7 +34,7 @@ public class ClientController {
         return clientService.save(z);
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Client update(@RequestBody Client client){
         return clientService.update(client);
