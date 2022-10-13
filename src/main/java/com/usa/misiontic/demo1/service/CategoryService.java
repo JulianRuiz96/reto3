@@ -1,7 +1,6 @@
 package com.usa.misiontic.demo1.service;
 
 import com.usa.misiontic.demo1.entities.Category;
-import com.usa.misiontic.demo1.entities.Client;
 import com.usa.misiontic.demo1.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +38,7 @@ public class CategoryService {
     public Category update(Category category){
         if (category.getId()!=null){
             Optional<Category> q = categoryRepository.getCategory(category.getId());
-            if (!q.isEmpty()){
+            if (q.isPresent()){
                 if (category.getDescription() !=null) {
                     q.get().setDescription(category.getDescription());
                 }if (category.getName()!=null){
@@ -53,11 +52,10 @@ public class CategoryService {
 
 
     public boolean deleteCategory (int id){
-        Boolean d =getCategory(id).map(category -> {
+        return getCategory(id).map(category -> {
             categoryRepository.delete(category);
             return true;
         }).orElse(false);
-        return d;
     }
 
 

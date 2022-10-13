@@ -1,3 +1,5 @@
+
+
 package com.usa.misiontic.demo1.controller;
 
 import com.usa.misiontic.demo1.entities.Category;
@@ -32,7 +34,7 @@ public class CategoryController {
         return categoryService.save(category);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Category update(@RequestBody Category category){
         return categoryService.update(category);

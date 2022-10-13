@@ -35,7 +35,7 @@ public class CostumeController {
         return costumeService.save(costume);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Costume update(@RequestBody Costume costume ){
         return costumeService.update(costume);
