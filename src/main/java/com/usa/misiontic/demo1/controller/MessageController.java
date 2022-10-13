@@ -1,7 +1,5 @@
 package com.usa.misiontic.demo1.controller;
 
-
-import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.entities.Message;
 import com.usa.misiontic.demo1.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +29,8 @@ public class MessageController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message save (@RequestBody Message p){
-        return messageService.save(p);
+    public Message save (@RequestBody Message costume){
+        return messageService.save(costume);
     }
 
     @PostMapping("/update")
@@ -43,6 +41,6 @@ public class MessageController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return messageService.delete(id);
+        return messageService.deleteMessage( id);
     }
 }

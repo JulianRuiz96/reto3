@@ -22,8 +22,8 @@ public class ClientRepository {
         return clientCrudRepository.findById(id);
     }
 
-    public Client save(Client p) {
-        return clientCrudRepository.save(p);
+    public Client save(Client client) {
+        return clientCrudRepository.save(client);
     }
 
     public void delete(Client client){

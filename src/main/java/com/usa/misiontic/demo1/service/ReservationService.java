@@ -1,6 +1,5 @@
 package com.usa.misiontic.demo1.service;
 
-import com.usa.misiontic.demo1.entities.Message;
 import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,14 +59,22 @@ public class ReservationService {
         }
     }
 
-    public boolean delete(int id){
-        boolean flag =false;
-        Optional<Reservation>p= reservationRepository.getReservation(id);
-        if (p.isPresent()){
-            reservationRepository.delete(p.get());
-            flag=true;
-        }
-        return flag;
+//    public boolean delete(int id){
+//        boolean flag =false;
+//        Optional<Reservation>p= reservationRepository.getReservation(id);
+//        if (p.isPresent()){
+//            reservationRepository.delete(p.get());
+//            flag=true;
+//        }
+//        return flag;
+//    }
+
+    public boolean deleteReservation(int id){
+        Boolean d = getReservation(id).map(reservation -> {
+            reservationRepository.delete(reservation);
+            return true;
+        }).orElse(false);
+        return d;
     }
 
 

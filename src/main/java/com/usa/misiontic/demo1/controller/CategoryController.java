@@ -28,8 +28,8 @@ public class CategoryController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save (@RequestBody Category c){
-        return categoryService.save(c);
+    public Category save (@RequestBody Category category){
+        return categoryService.save(category);
     }
 
     @PostMapping("/update")
@@ -41,7 +41,7 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return categoryService.delete(id);
+        return categoryService.deleteCategory(id);
     }
 
 

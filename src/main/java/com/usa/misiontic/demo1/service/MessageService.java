@@ -1,7 +1,6 @@
 package com.usa.misiontic.demo1.service;
 
 
-import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.entities.Message;
 import com.usa.misiontic.demo1.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,15 @@ public class MessageService {
         return messageRepository.getAll();
     }
 
-    public Optional<Message> getProduct(int id){
-        return messageRepository.getCostume(id);
+    public Optional<Message> getMessage(int id){
+        return messageRepository.getMessage(id);
     }
 
     public Message save(Message p){
         if (p.getIdMessage()==null){
             return messageRepository.save(p);
         }else {
-            Optional<Message> e = messageRepository.getCostume(p.getIdMessage());
+            Optional<Message> e = messageRepository.getMessage(p.getIdMessage());
             if (e.isPresent()){
                 return p;
             }else{
@@ -37,31 +36,39 @@ public class MessageService {
         }
     }
 
-    public Message update(Message p) {
-        if (p.getIdMessage() != null) {
-            Optional<Message> q = messageRepository.getCostume(p.getIdMessage());
-            if (q.isPresent()) {
-                if (p.getIdMessage() != null) {
-                    q.get().setIdMessage(p.getIdMessage());
+    public Message update(Message message) {
+        if (message.getIdMessage() != null) {
+            Optional<Message> q = messageRepository.getMessage(message.getIdMessage());
+            if (!q.isEmpty()) {
+                if (message.getMessageText() != null) {
+                    q.get().setMessageText(message.getMessageText());
                 }
                 messageRepository.save(q.get());
                 return q.get();
             } else {
-                return p;
+                return message;
             }
         } else {
-            return p;
+            return message;
         }
     }
 
-    public boolean delete(int id){
-        boolean flag =false;
-        Optional<Message>p= messageRepository.getCostume(id);
-        if (p.isPresent()){
-            messageRepository.delete(p.get());
-            flag=true;
-        }
-        return flag;
+//    public boolean delete(int id){
+//        boolean flag =false;
+//        Optional<Message>p= messageRepository.getCostume(id);
+//        if (p.isPresent()){
+//            messageRepository.delete(p.get());
+//            flag=true;
+//        }
+//        return flag;
+//    }
+
+    public boolean deleteMessage (int id){
+        Boolean d = getMessage(id).map(message -> {
+            messageRepository.delete(message);
+            return true;
+        }).orElse(false);
+        return d;
     }
 
 

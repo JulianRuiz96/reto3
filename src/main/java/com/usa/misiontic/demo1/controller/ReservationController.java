@@ -1,6 +1,5 @@
 package com.usa.misiontic.demo1.controller;
 
-import com.usa.misiontic.demo1.entities.Message;
 import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ public class ReservationController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservation save (@RequestBody Reservation p){
-        return reservationService.save(p);
+    public Reservation save (@RequestBody Reservation reservation){
+        return reservationService.save(reservation);
     }
 
     @PostMapping("/update")
@@ -41,7 +40,7 @@ public class ReservationController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return reservationService.delete(id);
+        return reservationService.deleteReservation( id);
     }
 
 }

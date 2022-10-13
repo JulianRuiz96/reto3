@@ -23,8 +23,8 @@ public class CostumeRepository {
         return costumeCrudRepository.findById(id);
     }
 
-    public Costume save(Costume p){
-        return costumeCrudRepository.save(p);
+    public Costume save(Costume costume){
+        return costumeCrudRepository.save(costume);
     }
 
     public void delete(Costume costume){

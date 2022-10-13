@@ -1,6 +1,5 @@
 package com.usa.misiontic.demo1.service;
 
-import com.usa.misiontic.demo1.entities.Category;
 import com.usa.misiontic.demo1.entities.Costume;
 import com.usa.misiontic.demo1.repository.CostumeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,51 +17,66 @@ public class CostumeService {
         return costumeRepository.getAll();
     }
 
-    public Optional<Costume> getProduct(int id){
+    public Optional<Costume> getCostume(int id){
         return costumeRepository.getCostume(id);
     }
 
-    public Costume save(Costume p){
-        if (p.getId()==null){
-            return costumeRepository.save(p);
+    public Costume save(Costume costume){
+        if (costume.getId()==null){
+            return costumeRepository.save(costume);
         }else {
-            Optional<Costume> e = costumeRepository.getCostume(p.getId());
+            Optional<Costume> e = costumeRepository.getCostume(costume.getId());
             if (e.isPresent()){
-                return p;
+                return costume;
             }else{
-                return costumeRepository.save(p);
+                return costumeRepository.save(costume);
             }
         }
     }
 
-    public Costume update(Costume p){
-        if (p.getId()!=null){
-            Optional<Costume> q = costumeRepository.getCostume(p.getId());
-            if (q.isPresent()){
-                if (p.getName() !=null) {
-                    q.get().setName(p.getName());
-                }if (p.getYear()!=null){
-                    q.get().setYear(p.getYear());
-                }if (p.getCategory()!=null){
-                    q.get().setCategory(p.getCategory());
+    public Costume update(Costume costume){
+        if (costume.getId()!=null){
+            Optional<Costume> q = costumeRepository.getCostume(costume.getId());
+            if (!q.isEmpty()){
+                if (costume.getName() !=null) {
+                    q.get().setName(costume.getName());
+                }if (costume.getBrand()!=null){
+                    q.get().setBrand(costume.getBrand());
+                }if (costume.getYear()!=null){
+                    q.get().setYear(costume.getYear());
+                }if (costume.getDescription()!=null){
+                    q.get().setDescription(costume.getDescription());
+                }if (costume.getCategory()!=null){
+                    q.get().setCategory(costume.getCategory());
                 }
                 costumeRepository.save(q.get());
                 return q.get();
             }else {
-                return p;
+                return costume;
             }
         }else{
-            return p;
+            return costume;
         }
     }
 
-    public boolean delete(int id){
-        boolean flag =false;
-        Optional<Costume>p= costumeRepository.getCostume(id);
-        if (p.isPresent()){
-            costumeRepository.delete(p.get());
-            flag=true;
-        }
-        return flag;
+
+
+
+//    public boolean delete(int id){
+//        boolean flag =false;
+//        Optional<Costume>p= costumeRepository.getCostume(id);
+//        if (p.isPresent()){
+//            costumeRepository.delete(p.get());
+//            flag=true;
+//        }
+//        return flag;
+//    }
+
+    public boolean deleteCustome (int id){
+        Boolean d = getCostume(id).map(costume -> {
+            costumeRepository.delete(costume);
+            return true;
+        }).orElse(false);
+        return d;
     }
 }

@@ -21,8 +21,8 @@ public class ScoreRepository {
         return scoreCrudRepository.findById(id);
     }
 
-    public Score save(Score p){
-        return scoreCrudRepository.save(p);
+    public Score save(Score score){
+        return scoreCrudRepository.save(score);
     }
 
     public void delete(Score score){
