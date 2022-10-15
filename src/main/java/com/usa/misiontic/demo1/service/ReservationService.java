@@ -89,8 +89,8 @@ public class ReservationService {
 
     public StatusAmount getReservationStatusReport(){
         List<Reservation> completed = reservationRepository.getReservationByStatus("completed");
-        List<Reservation> canceled = reservationRepository.getReservationByStatus("canceled");
-        return new StatusAmount(completed.size(), canceled.size());
+        List<Reservation> cancelled = reservationRepository.getReservationByStatus("cancelled");
+        return new StatusAmount(completed.size(), cancelled.size());
     }
 
     public List<Reservation>getReservationPeriod(String dateA, String dateB){
