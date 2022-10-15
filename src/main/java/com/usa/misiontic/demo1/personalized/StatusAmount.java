@@ -4,7 +4,7 @@ package com.usa.misiontic.demo1.personalized;
 
 public class   StatusAmount {
     private int completed;
-    private int canceled;
+    private int cancelled;
 
     public int getCompleted() {
         return completed;
@@ -14,17 +14,17 @@ public class   StatusAmount {
         this.completed = completed;
     }
 
-    public int getCanceled() {
-        return canceled;
+    public int getCancelled() {
+        return cancelled;
     }
 
-    public void setCanceled(int canceled) {
-        this.canceled = canceled;
+    public void setCancelled(int cancelled) {
+        this.cancelled = cancelled;
     }
 
-    public StatusAmount(int completed, int canceled) {
+    public StatusAmount(int completed, int cancelled) {
         this.completed = completed;
-        this.canceled = canceled;
+        this.cancelled = cancelled;
     }
 
     public StatusAmount() {
