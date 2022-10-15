@@ -1,10 +1,16 @@
 package com.usa.misiontic.demo1.service;
 
 import com.usa.misiontic.demo1.entities.Reservation;
+import com.usa.misiontic.demo1.personalized.CountClient;
+import com.usa.misiontic.demo1.personalized.StatusAmount;
 import com.usa.misiontic.demo1.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,5 +83,30 @@ public class ReservationService {
         return d;
     }
 
+    public List<CountClient> getTopClients(){
+        return reservationRepository.getTopClients();
+    }
 
+    public StatusAmount getReservationStatusReport(){
+        List<Reservation> completed = reservationRepository.getReservationByStatus("completed");
+        List<Reservation> canceled = reservationRepository.getReservationByStatus("canceled");
+        return new StatusAmount(completed.size(), canceled.size());
+    }
+
+    public List<Reservation>getReservationPeriod(String dateA, String dateB){
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+        Date a = new  Date();
+        Date b = new Date();
+        try {
+            a = parser.parse(dateA);
+            b = parser.parse(dateB);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        if(a.before(b)){
+            return reservationRepository.getReservationPeriod(a,b);
+        }else{
+            return new ArrayList<>();
+        }
+    }
 }

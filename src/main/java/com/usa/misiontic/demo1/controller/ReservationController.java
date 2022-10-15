@@ -1,6 +1,8 @@
 package com.usa.misiontic.demo1.controller;
 
 import com.usa.misiontic.demo1.entities.Reservation;
+import com.usa.misiontic.demo1.personalized.CountClient;
+import com.usa.misiontic.demo1.personalized.StatusAmount;
 import com.usa.misiontic.demo1.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,4 +45,18 @@ public class ReservationController {
         return reservationService.deleteReservation( id);
     }
 
+    @GetMapping("/report-clients")
+    public List<CountClient>getReservationReportClient(){
+        return reservationService.getTopClients();
+    }
+
+    @GetMapping("/report-status")
+    public StatusAmount getReservationStatus(){
+        return reservationService.getReservationStatusReport();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+        public List<Reservation>getReservationReportDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo")String dateTwo){
+        return reservationService.getReservationPeriod(dateOne, dateTwo);
+    }
 }
