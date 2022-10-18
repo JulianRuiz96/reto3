@@ -13,7 +13,7 @@ public class Score {
     private Integer id;
     private Integer score;
 
-    @OneToOne
+    @OneToOne(mappedBy = "score")
     @JsonIgnoreProperties("score")
     private Reservation reservations;
 

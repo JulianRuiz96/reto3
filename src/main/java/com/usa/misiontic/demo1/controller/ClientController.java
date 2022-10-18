@@ -18,6 +18,7 @@ public class ClientController {
 
     @GetMapping("/all")
     @PostMapping("/all")
+    @CrossOrigin(origins = "*")
     public List<Client> getAll(){
         return clientService.getAll();
     }

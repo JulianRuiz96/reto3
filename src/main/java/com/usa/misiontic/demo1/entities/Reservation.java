@@ -30,7 +30,8 @@ public class Reservation {
 
 
 
-    @OneToOne(mappedBy = "reservations")
+    @OneToOne
+    @JoinColumn(name = "scoreId")
     @JsonIgnoreProperties("reservations")
     private Score score;
 

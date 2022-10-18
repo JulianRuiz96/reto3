@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/Score")
+@CrossOrigin(origins = "*")
 public class ScoreController {
 
     @Autowired

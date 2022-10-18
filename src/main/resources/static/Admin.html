@@ -1,47 +1,35 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet icon" href="/icon/tapCrewIcon.svg">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Admin</title>
 </head>
+<body>
+<BODY BGCOLOR="#68F7A8"></BODY>
 
-<body class="background_admin">
+<h1 style="color:#563856">ADMIN USERS</h1>
 
 <div>
-    <h1>Welcome to Challenges Clycle 3</h1>
-
-    <button class="button_custome" onclick="location.href='Costume.html'">COSTUME</button>
-    <button class="button_client" onclick="location.href='Client.html'">CLIENT</button>
-    <button class="button_message" onclick="location.href='Message.html'">MESSAGE</button>
-    <button class="button_admin" onclick="location.href='Admin.html'"> ADMIN</button>
-</div>
-
-
-<h1 class="h1_admin">ADMIN USERS</h1>
-
-<div class="ingreso_datos_admin">
+    <input type="number" id="idAdmin"  hidden>
     FULL NAME <input type="text" id="nameAdmin" name="name" placeholder="Insert your full name">
     EMAIL <input type="email" id="emailAdmin" placeholder="Insert your email">
     PASSWORD <input type="password" id="passwordAdmin" placeholder="Insert your password">
 
 </div>
 
-<div class="tabla_admin">
-    <div class="menu_admin">
-        <button class="button_admin" onclick="mostrarInformacionAdmin()">Consultar</button>
-        <button class="button_admin" onclick="agregarInformacionAdmin()">Guardar</button>
-        <button class="button_admin" onclick="actualizarInformacionAdmin()">Actualizar</button>
-        <button class="button_admin" onclick="location.href='index.html'">Volver</button>
+<div>
+    <div>
+        <button  class="btn-create" style="background-color:#7c65b1; border-color:#563856; color:white;">Guardar</button>
+        <button  class="btn-update" style="background-color:#7c65b1; border-color:#563856; color:white;">Actualizar</button>
+        <button  class="btn-back" style="background-color:#7c65b1; border-color:#563856; color:white;">Volver</button>
+        <button class="btn-clean" 
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Clean</button>
         <div id="resultadoAdmin"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="/js/Admin.js"></script>
 </div>
 </body>
-
 </html>

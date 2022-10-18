@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <BODY BGCOLOR="#e36b15"></BODY>
+
+<h1 style="color:#563856">RESERVATION</h1>
+<div>
+    <p>
+    <input type="text" id="idRes" hidden>
+    START DATE <input type="date" id="startDate" disabled>
+    DEVOLUTION DATE <input type="date" id="devolutionDate">
+</p>
+    STATUS <input type="text" id="status" placeholder="ingresa el status">
+    BOAT <select id="boat"></select>
+    CLIENT <select id="client"></select>
+    SCORE <select id="score"></select>
+</div>
+<button class="btn-create"
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Guardar
+</button>
+<button class="btn-update"
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Actualizar
+</button>
+<button class="btn-back" 
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Volver
+</button>
+<button class="btn-clean" 
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Clean
+</button>
+<div id="resultadoRes"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/Reservation.js"></script>
+</body>
+</html>
